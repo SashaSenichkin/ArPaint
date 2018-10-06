@@ -1,0 +1,129 @@
+{
+	"user_params":{
+			"size": "Размер",
+			"material": "Материал",
+			"paint_type": "Тип красок",
+			"price": "Стоимость"
+	},
+	"pictures": [{
+		"id": 1,
+		"resource_name": "11",
+		"preview_pic_name": "dali1_sm",
+		"model_size_x": 1,
+		"model_size_y": 1,
+		"description": "Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"user_params": {
+			"size": "2 m",
+			"material": "холст",
+			"paint_type": "масло",
+			"price": "3000$"
+		},
+		"is_new": false
+	},
+	{
+		"id": 2,
+		"resource_name": "22",
+		"preview_pic_name": "dali2_sm",
+		"model_size_x": 1,
+		"model_size_y": 1,
+		"description": "Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"user_params": {
+			"size": "2 m",
+			"material": "холст",
+			"paint_type": "масло",
+			"price": "3000$"
+		},
+		"is_new": false
+	},
+	{
+		"id": 3,
+		"resource_name": "33",
+		"preview_pic_name": "dali3_sm",
+		"model_size_x": 1,
+		"model_size_y": 1,
+		"description": "Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"user_params": {
+			"size": "2 m",
+			"material": "холст",
+			"paint_type": "масло",
+			"price": "3000$"
+		},
+		"is_new": false
+	},
+	{
+		"id": 4,
+		"resource_name": "44",
+		"preview_pic_name": "dali4_sm",
+		"model_size_x": 1,
+		"model_size_y": 1,
+		"description": "Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"user_params": {
+			"size": "2 m",
+			"material": "холст",
+			"paint_type": "масло",
+			"price": "3000$"
+		},
+		"is_new": false
+	},
+	{
+		"id": 5,
+		"resource_name": "55",
+		"preview_pic_name": "dali1_sm",
+		"model_size_x": 1,
+		"model_size_y": 1,
+		"description": "Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"user_params": {
+			"size": "2 m",
+			"material": "холст",
+			"paint_type": "масло",
+			"price": "3000$"
+		},
+		"is_new": false
+	},
+	{
+		"id": 6,
+		"resource_name": "66",
+		"preview_pic_name": "dali2_sm",
+		"model_size_x": 1,
+		"model_size_y": 1,
+		"description": "Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"user_params": {
+			"size": "2 m",
+			"material": "холст",
+			"paint_type": "масло",
+			"price": "3000$"
+		},
+		"is_new": false
+	},
+	{
+		"id": 7,
+		"resource_name": "77",
+		"preview_pic_name": "dali3_sm",
+		"model_size_x": 1,
+		"model_size_y": 1,
+		"description": "Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"user_params": {
+			"size": "2 m",
+			"material": "холст",
+			"paint_type": "масло",
+			"price": "3000$"
+		},
+		"is_new": false
+	},
+	{
+		"id": 9,
+		"resource_name": "88",
+		"preview_pic_name": "dali4_sm",
+		"model_size_x": 1,
+		"model_size_y": 1,
+		"description": "Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"user_params": {
+			"size": "2 m",
+			"material": "холст",
+			"paint_type": "масло",
+			"price": "3000$"
+		},
+		"is_new": false
+	}
+	]
+}
