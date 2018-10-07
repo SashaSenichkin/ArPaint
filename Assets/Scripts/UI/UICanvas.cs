@@ -13,7 +13,11 @@ namespace PaintApp
     {
         [SerializeField] private GameObject MainScreenProxy;
         [SerializeField] private GameObject OnePicturePrefab;
-        public List<Animator> AnimatorsSave;
+        //public List<Animator> AnimatorsSave;
+
+        [SerializeField]
+        private List<Mover> Movers;
+
         Manager manager;
 
         public void Initialize()
@@ -35,32 +39,39 @@ namespace PaintApp
                 newPic.GetComponent<Image>().sprite = item.Value;
             }
         }
-
-        public void SwitchScreenTo(ScreenType newScreen)
+        public void SwitchDialog(ScreenType dialogType)
         {
-            print("SwitchScreenTo " + (int)newScreen + " " + newScreen);
-
-            //foreach (var item in AnimatorsSave)
-            //{
-            //    item.SetInteger("state", (int)newScreen);
-            //}
+            Mover dialog = GetScreenByType(dialogType);
+            Translition.Instance.StartSwitchDialog(dialog, !dialog.gameObject.activeSelf);
         }
-        private GameObject GetScreenByType(ScreenType type)
+        public void SwitchScreenTo(ScreenType oldScreen, ScreenType newScreen)
         {
-            switch (newScreen)
+            if (newScreen == ScreenType.main)
             {
-                case ScreenType.main:
-                    break;
-                case ScreenType.detail:
-                    break;
-                case ScreenType.ARscene:
-                    break;
-                case ScreenType.contact:
-                    break;
-                default:
-                    break;
+                Translition.Instance.StartSwitchDialog(GetScreenByType(ScreenType.bottom), false);
             }
-
+            else if (newScreen == ScreenType.ARScene)
+            {
+                Translition.Instance.StartSwitchDialog(GetScreenByType(ScreenType.header), false);
+            }
+            else if (newScreen == ScreenType.detail && oldScreen == ScreenType.main)
+            {
+                Translition.Instance.StartSwitchDialog(GetScreenByType(ScreenType.bottom), true);
+            }
+            else if ((newScreen == ScreenType.contact || newScreen == ScreenType.detail) && oldScreen == ScreenType.ARScene)
+            {
+                Translition.Instance.StartSwitchDialog(GetScreenByType(ScreenType.header), true);
+            }
+            Translition.Instance.StartReplaceScreens(GetScreenByType(oldScreen), GetScreenByType(newScreen));
+        }
+        private Mover GetScreenByType(ScreenType type)
+        {
+            Mover result = Movers.FirstOrDefault(x => x.MyType == type);
+            if (result==null)
+            {
+                throw new Exception("GetScreenByType unknownType " + type);
+            }
+            return result;
         }
     }
 }

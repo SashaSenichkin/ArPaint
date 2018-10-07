@@ -26,7 +26,7 @@ namespace PaintApp
                     BtnView.SetActive(true);
                     BtnRestart.SetActive(false);
                     break;
-                case ScreenType.ARscene:
+                case ScreenType.ARScene:
                     BtnInfo.SetActive(false);
                     BtnView.SetActive(false);
                     BtnRestart.SetActive(true);

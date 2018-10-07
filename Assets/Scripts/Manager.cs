@@ -12,8 +12,12 @@ namespace PaintApp
     {
         main = 1,
         detail = 2,
-        ARscene = 3,
-        contact = 4
+        ARScene = 3,
+        contact = 4,
+        header,
+        bottom,
+        paramDialog,
+        ARHelpDialog
     }
     class Manager : MonoBehaviour
     {
@@ -30,11 +34,13 @@ namespace PaintApp
         int curPic;
         public void BackButton()
         {
-            if (History.Count > 1)
+            int lastIndex = History.Count-1;
+            if (lastIndex > 0)
             {
-                History.RemoveAt(History.Count - 1);
-                SwitchScreenWrap(History.Last());
-                History.RemoveAt(History.Count - 1);
+                UIcontr.SwitchScreenTo(History[lastIndex], History[lastIndex-1]);
+                print("BackButton SwitchScreenTo location " + History[lastIndex] +" to " + History[lastIndex - 1]);
+                UIBot.SwitchScreenTo(History[lastIndex -1]);
+                History.RemoveAt(lastIndex);
             }
             else
             {
@@ -50,9 +56,8 @@ namespace PaintApp
             mainConf = new Config(JSON.Parse(ConfigJson.text));
             UIcontr.Initialize();
             UIcontr.MainSceneInvalidate();
-            SwitchScreenWrap(ScreenType.main);
-            UIDetContr.OnDoubleClick += ()=> SwitchScreenWrap(ScreenType.ARscene);
-            Debug.LogError("stop here");
+            History.Add(ScreenType.main);
+            UIDetContr.OnDoubleClick += ()=> SwitchScreenWrap(ScreenType.ARScene);
         }
         public Dictionary<string, string> GetPropForPic(int id)
         {
@@ -85,9 +90,13 @@ namespace PaintApp
         }
         public void SwitchScreenWrap(ScreenType screen)
         {
+            if (screen == History.Last())
+            {
+                return;
+            }
+            //UIBot.SwitchScreenTo(screen);
+            UIcontr.SwitchScreenTo(History.Last(), screen);
             History.Add(screen);
-            UIBot.SwitchScreenTo(screen);
-            UIcontr.SwitchScreenTo(screen);
         }
         public void OpenContact()
         {
@@ -95,11 +104,19 @@ namespace PaintApp
         }
         public void OpenAR()
         {
-            SwitchScreenWrap(ScreenType.ARscene);
+            SwitchScreenWrap(ScreenType.ARScene);
         }
         public void OpenMain()
         {
             SwitchScreenWrap(ScreenType.main);
+        }
+        public void InfoDialogShowHide()
+        {
+            UIcontr.SwitchDialog (ScreenType.paramDialog);
+        }
+        public void ArHelperDialogShowHide()
+        {
+            UIcontr.SwitchDialog(ScreenType.ARHelpDialog);
         }
         public void SendContactEmail(string email, string phone)
         {
