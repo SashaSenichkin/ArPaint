@@ -11,7 +11,7 @@ namespace PaintApp
     {
         public event Action OnDoubleClick;
         private DateTime LastClick;
-        private float DoubleClickMs;
+        private float DoubleClickMs = 500f;
         [SerializeField]
         private Image DetailImage;
         [SerializeField]
@@ -40,7 +40,7 @@ namespace PaintApp
         }
         public void OnMouseDown()
         {
-            print("OnMouseDown");
+            print("OnMouseDown " + (DateTime.Now - LastClick).TotalMilliseconds);
             if (LastClick == null)
             {
                 LastClick = DateTime.Now;

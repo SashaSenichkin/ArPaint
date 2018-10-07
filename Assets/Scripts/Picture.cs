@@ -43,11 +43,12 @@ namespace PaintApp
             JSON.TryReadString(node, ref MainPictureStr, STR_Main_Name);
             JSON.TryReadString(node, ref PreviewPictureStr, STR_Preview_Name);
             JSON.TryReadBool(node, ref IsNew, STR_Is_new);
-            //JSON.Class userParNode = node[STR_User_params].AsClass;
-            //foreach (JSON.ANode item in userParNode)
-            //{
-            //    UserParams.Add(Config.Localization[item[STR_Name]], item[STR_Value]);
-            //}
+            JSON.Class userParNode = node[STR_User_params].AsClass;
+            var properties = userParNode.GetNamesOfAllChildren();
+            foreach (string item in properties)
+            {
+                UserParams.Add(Config.Localization[item], userParNode[item]);
+            }
 
             MainPicture = Resources.Load<Sprite>(MainPictureStr);
             if (MainPicture == null) 

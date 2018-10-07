@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace PaintApp
 {
+    [Serializable]
     enum ScreenType
     {
         main = 1,
@@ -23,24 +24,34 @@ namespace PaintApp
         public UIBottom UIBot;
         public TextAsset ConfigJson;
         public SpriteRenderer PicModel;
-        
-        
+
+        private List<ScreenType> History;
         Config mainConf;
         int curPic;
         public void BackButton()
         {
-            SetChoosedPic(curPic);
+            if (History.Count > 1)
+            {
+                History.RemoveAt(History.Count - 1);
+                SwitchScreenWrap(History.Last());
+                History.RemoveAt(History.Count - 1);
+            }
+            else
+            {
+                print("last history location");
+            }
         }
 
      
         private void Awake()
         {
+            History = new List<ScreenType>();
             Instanse = this;
             mainConf = new Config(JSON.Parse(ConfigJson.text));
             UIcontr.Initialize();
             UIcontr.MainSceneInvalidate();
-            UIcontr.SwitchScreenTo(ScreenType.main);
-            UIDetContr.OnDoubleClick += ()=> UIcontr.SwitchScreenTo(ScreenType.main);
+            SwitchScreenWrap(ScreenType.main);
+            UIDetContr.OnDoubleClick += ()=> SwitchScreenWrap(ScreenType.ARscene);
             Debug.LogError("stop here");
         }
         public Dictionary<string, string> GetPropForPic(int id)
@@ -69,18 +80,26 @@ namespace PaintApp
             curPic = id;
             var picture = mainConf.AllProducts[id];
             UIDetContr.DetailInvalidate(picture.MainPicture, picture.Description, GetPropForPic(id));
-            UIcontr.SwitchScreenTo(ScreenType.detail);
-            UIBot.SwitchScreenTo(ScreenType.detail);
+            SwitchScreenWrap(ScreenType.detail);            
             PicModel.sprite = picture.MainPicture;
+        }
+        public void SwitchScreenWrap(ScreenType screen)
+        {
+            History.Add(screen);
+            UIBot.SwitchScreenTo(screen);
+            UIcontr.SwitchScreenTo(screen);
         }
         public void OpenContact()
         {
-            UIcontr.SwitchScreenTo(ScreenType.contact);
+            SwitchScreenWrap(ScreenType.contact);
         }
         public void OpenAR()
         {
-            UIBot.SwitchScreenTo(ScreenType.ARscene);
-            UIcontr.SwitchScreenTo(ScreenType.ARscene);
+            SwitchScreenWrap(ScreenType.ARscene);
+        }
+        public void OpenMain()
+        {
+            SwitchScreenWrap(ScreenType.main);
         }
         public void SendContactEmail(string email, string phone)
         {

@@ -15,18 +15,6 @@ namespace PaintApp
         [SerializeField] private GameObject OnePicturePrefab;
         public List<Animator> AnimatorsSave;
         Manager manager;
-        private ScreenType _LastState = ScreenType.main;
-        public ScreenType LastState
-        {
-            get
-            {
-                return _LastState;
-            }
-            private set
-            {
-                _LastState = value;
-            }
-        }
 
         public void Initialize()
         {
@@ -51,11 +39,28 @@ namespace PaintApp
         public void SwitchScreenTo(ScreenType newScreen)
         {
             print("SwitchScreenTo " + (int)newScreen + " " + newScreen);
-            foreach (var item in AnimatorsSave)
+
+            //foreach (var item in AnimatorsSave)
+            //{
+            //    item.SetInteger("state", (int)newScreen);
+            //}
+        }
+        private GameObject GetScreenByType(ScreenType type)
+        {
+            switch (newScreen)
             {
-                item.SetInteger("state", (int)newScreen);
+                case ScreenType.main:
+                    break;
+                case ScreenType.detail:
+                    break;
+                case ScreenType.ARscene:
+                    break;
+                case ScreenType.contact:
+                    break;
+                default:
+                    break;
             }
-            LastState = newScreen;
+
         }
     }
 }

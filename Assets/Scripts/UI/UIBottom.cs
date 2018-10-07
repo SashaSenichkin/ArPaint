@@ -14,26 +14,30 @@ namespace PaintApp
         [SerializeField] private GameObject BtnInfo;
         [SerializeField] private GameObject BtnView;
         [SerializeField] private GameObject BtnRestart;
-        [SerializeField] private GameObject BtnDetail;
-
         [SerializeField] private GameObject BtnContact;
-
+        [SerializeField]
+        private LayoutGroup BottomLayout;
         public void SwitchScreenTo(ScreenType newScreen)
         {
-
             switch (newScreen)
             {
                 case ScreenType.detail:
                     BtnInfo.SetActive(true);
                     BtnView.SetActive(true);
                     BtnRestart.SetActive(false);
-                    BtnDetail.SetActive(false);
                     break;
                 case ScreenType.ARscene:
                     BtnInfo.SetActive(false);
                     BtnView.SetActive(false);
                     BtnRestart.SetActive(true);
-                    BtnDetail.SetActive(true);
+                    break;
+                case ScreenType.contact:
+                    BtnInfo.SetActive(false);
+                    BtnView.SetActive(false);
+                    BtnRestart.SetActive(false);
+                    BtnContact.SetActive(false);
+                    break;
+                case ScreenType.main:
                     break;
                 default:
                     Debug.Log("UIBottom SwitchScreenTo unknown type " + newScreen);
