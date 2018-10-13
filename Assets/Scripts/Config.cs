@@ -24,9 +24,10 @@ namespace PaintApp
                 Localization.Add(item, userParArr[item]);
             }
             JSON.Array picArr = node[STR_Pictures].AsArray;
+            int counter = 0;
             foreach (JSON.ANode item in picArr)
             {
-                Picture newPic = new Picture(item);
+                Picture newPic = new Picture(item, counter++);
                 AllProducts.Add(newPic.Id, newPic);
             }
         }

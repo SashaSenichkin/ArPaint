@@ -19,6 +19,7 @@ namespace PaintApp
         private const string STR_Name = "name";
         private const string STR_Value = "value";
         public int Id { get; private set; }
+        public int Index { get; set; }
         public float SizeX { get; private set; }
         public float SizeY { get; private set; }
 
@@ -30,8 +31,9 @@ namespace PaintApp
         public string Description;
         public bool IsNew = false;
         public Dictionary<string, string> UserParams = new Dictionary<string, string>();
-        public Picture(JSON.ANode node)
+        public Picture(JSON.ANode node,int index)
         {
+            Index = index;
             JsonReadFrom(node);
         }
         public void JsonReadFrom(JSON.ANode node, string outerName = "")

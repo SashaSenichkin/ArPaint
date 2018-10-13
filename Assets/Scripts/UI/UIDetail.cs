@@ -10,7 +10,10 @@ namespace PaintApp
     class UIDetail:MonoBehaviour
     {
         public event Action OnDoubleClick;
+        public event Action OnSwipeLeft;
+        public event Action OnSwipeRight;
         private DateTime LastClick;
+        private float? LastClickPointX = null;
         private float DoubleClickMs = 500f;
         [SerializeField]
         private Image DetailImage;
@@ -40,7 +43,6 @@ namespace PaintApp
         }
         public void OnMouseDown()
         {
-            print("OnMouseDown " + (DateTime.Now - LastClick).TotalMilliseconds);
             if (LastClick == null)
             {
                 LastClick = DateTime.Now;
@@ -52,7 +54,29 @@ namespace PaintApp
                     OnDoubleClick();
                 }
             }
+            else
+            {
+                LastClickPointX = Application.isEditor ? Input.mousePosition.x : Input.touches.First().position.x;
+            }
             LastClick = DateTime.Now;
+        }
+        public void OnMouseUp()
+        {
+            float clickX = Application.isEditor ? Input.mousePosition.x : Input.touches.First().position.x;
+            if (LastClickPointX == null)
+            {
+                return;
+            }
+            else if (clickX > LastClickPointX && OnSwipeRight != null)
+            {
+                OnSwipeRight();
+                LastClickPointX = null;
+            }
+            else if (clickX < LastClickPointX && OnSwipeLeft != null)
+            {
+                OnSwipeLeft();
+                LastClickPointX = null;
+            }
         }
         public void SwitchParamWindow()
         {
