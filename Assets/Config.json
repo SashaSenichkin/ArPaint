@@ -22,10 +22,10 @@
 	},
 	{
 		"id": 2,
-		"resource_name": "22",
+		"resource_name": "11",
 		"preview_pic_name": "dali2_sm",
-		"model_size_x": 1,
-		"model_size_y": 1,
+		"model_size_x": 0.01,
+		"model_size_y": 0.01,
 		"description": "22 Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
 		"user_params": {
 			"size": "2 m",
@@ -37,10 +37,10 @@
 	},
 	{
 		"id": 3,
-		"resource_name": "33",
+		"resource_name": "11",
 		"preview_pic_name": "dali3_sm",
-		"model_size_x": 1,
-		"model_size_y": 1,
+		"model_size_x": 0.1,
+		"model_size_y": 0.1,
 		"description": "33Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
 		"user_params": {
 			"size": "2 m",

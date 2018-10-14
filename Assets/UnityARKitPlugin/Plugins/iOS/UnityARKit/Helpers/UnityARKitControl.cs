@@ -35,15 +35,23 @@ namespace UnityEngine.XR.iOS
     		
     	}
 
+        public void ResetAR()
+        {
+            
+            ARKitWorldTrackingSessionConfiguration sessionConfig = new ARKitWorldTrackingSessionConfiguration (alignmentOptions [currentAlignmentIndex], planeOptions[currentPlaneIndex]);
+            UnityARSessionNativeInterface.GetARSessionNativeInterface ().RunWithConfigAndOptions (sessionConfig, runOptions[currentOptionIndex]);
+
+        }
+
         void OnGUI()
         {
             if (GUI.Button (new Rect (100, 100, 200, 50), "Stop")) {
                 UnityARSessionNativeInterface.GetARSessionNativeInterface ().Pause ();
             }
 
-            if (GUI.Button (new Rect (300, 100, 200, 50), "Start")) {
-                ARKitWorldTrackingSessionConfiguration sessionConfig = new ARKitWorldTrackingSessionConfiguration (alignmentOptions [currentAlignmentIndex], planeOptions[currentPlaneIndex]);
-                UnityARSessionNativeInterface.GetARSessionNativeInterface ().RunWithConfigAndOptions (sessionConfig, runOptions[currentOptionIndex]);
+            if (GUI.Button (new Rect (300, 100, 200, 50), "Start"))
+            {
+                ResetAR();
             }
 
 

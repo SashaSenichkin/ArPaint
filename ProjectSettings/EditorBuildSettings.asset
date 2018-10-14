@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/mainScene.unity
     guid: a3fa170a1d21be3498a0ea01989af252
+  - enabled: 0
+    path: Assets/ClearArkit.unity
+    guid: ff32a16fbc98c485581d68f5f398ed5b
   m_configObjects: {}

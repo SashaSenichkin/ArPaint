@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace UnityEngine.XR.iOS
 {
@@ -8,12 +9,16 @@ namespace UnityEngine.XR.iOS
 		public Transform m_HitTransform;
 		public float maxRayDistance = 30.0f;
 		public LayerMask collisionLayer = 1 << 10;  //ARKitPlane layer
-
+		public UnityEvent onClick;
         bool HitTestWithResultType (ARPoint point, ARHitTestResultType resultTypes)
         {
             List<ARHitTestResult> hitResults = UnityARSessionNativeInterface.GetARSessionNativeInterface ().HitTest (point, resultTypes);
             if (hitResults.Count > 0) {
                 foreach (var hitResult in hitResults) {
+	                if (onClick!= null)
+	                {
+		                onClick.Invoke();
+	                }
                     Debug.Log ("Got hit!");
                     m_HitTransform.position = UnityARMatrixOps.GetPosition (hitResult.worldTransform);
                     m_HitTransform.rotation = UnityARMatrixOps.GetRotation (hitResult.worldTransform);
@@ -46,6 +51,12 @@ namespace UnityEngine.XR.iOS
 			if (Input.touchCount > 0 && m_HitTransform != null)
 			{
 				var touch = Input.GetTouch(0);
+	print("update touch.position.y < 0.1 " +touch.position.y + " " +0.1*Screen.height);
+				if (touch.position.y < 0.1*Screen.height)
+				{
+					print("touch.position.y < 0.1 " +touch.position.y + " " +0.1*Screen.height);
+					return;
+				}
 				if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
 				{
 					var screenPosition = Camera.main.ScreenToViewportPoint(touch.position);

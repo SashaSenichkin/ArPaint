@@ -12,11 +12,17 @@ namespace PaintApp
         public RectTransform MyRect;
         private float StartRectXMax;
         private float StartRectXMin;
+        private const float IphoneXShift = 0.95f;
+        private const string IphoneX = "iphone10,6";
         public ScreenType MyType;
-
+        
         private void Awake()
         {
             SetStartParams(MyRect.anchorMax.x, MyRect.anchorMin.x);
+            if (SystemInfo.deviceModel.ToLower().Contains(IphoneX))
+            {
+                MyRect.anchorMax = new Vector2(MyRect.anchorMax.x, IphoneXShift);
+            }
         }
         public void SetStartParams(float newRectMax, float newRectMin)
         {

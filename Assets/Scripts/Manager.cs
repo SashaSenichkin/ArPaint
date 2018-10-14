@@ -22,7 +22,8 @@ namespace PaintApp
         header,
         bottom,
         paramDialog,
-        ARHelpDialog
+        ARHelpDialog,
+        background
     }
     class Manager : MonoBehaviour
     {
@@ -96,6 +97,8 @@ namespace PaintApp
             if (PicModel != null)
             {
                 PicModel.sprite = picture.MainPicture;
+                Debug.Log("SetChoosedPic " + picture.SizeX+ " " + picture.SizeY);
+                PicModel.gameObject.transform.localScale = new Vector3(picture.SizeX, picture.SizeY,0);
             }       
         }
 
@@ -109,7 +112,7 @@ namespace PaintApp
             UIcontr.SwitchScreenTo(History.Last(), screen);
             History.Add(screen);
         }
-        #region On scaene reference
+        #region On scene reference
         public void BackButton()
         {
             int lastIndex = History.Count - 1;
@@ -141,9 +144,13 @@ namespace PaintApp
         {
             UIcontr.SwitchDialog (ScreenType.paramDialog);
         }
-        public void ArHelperDialogShowHide()
+        public void ArHelperDialogHide()
         {
-            UIcontr.SwitchDialog(ScreenType.ARHelpDialog);
+            UIcontr.SetDialogTo(ScreenType.ARHelpDialog, false);
+        }
+        public void ArHelperDialogShow()
+        {
+            UIcontr.SetDialogTo(ScreenType.ARHelpDialog, true);
         }
         #endregion
         public void SendContactEmail(string email, string phone)
@@ -176,19 +183,6 @@ namespace PaintApp
             {
                 Debug.Log("SendEmail" + ex.ToString());
             }
-        }
-
-        //SmtpClient Smtp = new SmtpClient("smtp.mail.ru", 2525);
-        //Smtp.Credentials = ((System.Net.ICredentialsByHost)(new NetworkCredential("mail@mail.ru", "пароль")));
-        //MailMessage Message = new MailMessage();
-        //Message.From = new MailAddress("mail@mail.ru");
-        //Message.To.Add(new MailAddress("mail@mail.ru"));
-        //Message.Subject = "Тест";
-        //Message.Body = "тест!!";
-        //Smtp.Send(Message);//отправка
-        public void SendEmail()
-        {
-
         }
     }
 }

@@ -11,6 +11,8 @@ namespace PaintApp
 
     class UICanvas : MonoBehaviour
     {
+        private const string RtfColorPrefix = "<color=#00BFFF>";
+        private const string RtfColorPostfix = "</color>";
         [SerializeField] private GameObject MainScreenProxy;
         [SerializeField] private GameObject OnePicturePrefab;
         //public List<Animator> AnimatorsSave;
@@ -39,28 +41,47 @@ namespace PaintApp
                 newPic.GetComponent<Image>().sprite = item.Value;
             }
         }
+
+        public static string GetColoredText(string input)
+        {
+            return RtfColorPrefix+ input[0] +RtfColorPostfix + input.Substring(1);
+        }
+
         public void SwitchDialog(ScreenType dialogType)
         {
             Mover dialog = GetScreenByType(dialogType);
             Translition.Instance.StartSwitchDialog(dialog, !dialog.gameObject.activeSelf);
         }
+        public void SetDialogTo(ScreenType dialogType, bool isActive)
+        {
+            Mover dialog = GetScreenByType(dialogType);
+            if (dialog.gameObject.activeSelf != isActive)
+            {
+               Translition.Instance.StartSwitchDialog(dialog, !dialog.gameObject.activeSelf); 
+            }
+            
+        }
         public void SwitchScreenTo(ScreenType oldScreen, ScreenType newScreen)
         {
             if (newScreen == ScreenType.main)
             {
-                Translition.Instance.StartSwitchDialog(GetScreenByType(ScreenType.bottom), false);
+                SetDialogTo(ScreenType.bottom, false);
             }
             else if (newScreen == ScreenType.ARScene)
             {
-                Translition.Instance.StartSwitchDialog(GetScreenByType(ScreenType.header), false);
+                SetDialogTo(ScreenType.header, false);
+                SetDialogTo(ScreenType.background, false);
             }
-            else if (newScreen == ScreenType.detail && oldScreen == ScreenType.main)
+            else if (newScreen == ScreenType.detail&&oldScreen == ScreenType.main)
             {
-                Translition.Instance.StartSwitchDialog(GetScreenByType(ScreenType.bottom), true);
+                SetDialogTo(ScreenType.bottom, true);
+                
             }
-            else if ((newScreen == ScreenType.contact || newScreen == ScreenType.detail) && oldScreen == ScreenType.ARScene)
+            if ((newScreen == ScreenType.contact || newScreen == ScreenType.detail) && oldScreen == ScreenType.ARScene)
             {
-                Translition.Instance.StartSwitchDialog(GetScreenByType(ScreenType.header), true);
+                SetDialogTo(ScreenType.header, true);
+                SetDialogTo(ScreenType.background, true);
+                
             }
             Translition.Instance.StartReplaceScreens(GetScreenByType(oldScreen), GetScreenByType(newScreen));
         }

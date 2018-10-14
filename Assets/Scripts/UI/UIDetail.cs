@@ -37,7 +37,7 @@ namespace PaintApp
                 newProp.GetComponent<PropertyDataSwitcher>().SetValues(item.Key, item.Value);
             }
             DetailImage.sprite = picImage;
-            DetailDescription.text = description;
+            DetailDescription.text = UICanvas.GetColoredText(description);
             IsParamsVisible = false;
             PropertyProxy.SetActive(false);
         }

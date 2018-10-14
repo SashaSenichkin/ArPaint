@@ -13,7 +13,7 @@ namespace PaintApp
         public Text PropertyValue;
         public void SetValues(string name, string value)
         {
-            PropertyName.text = name;
+            PropertyName.text = UICanvas.GetColoredText(name);
             PropertyValue.text = value;
         }
     }
