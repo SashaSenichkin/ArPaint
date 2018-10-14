@@ -39,8 +39,8 @@ namespace PaintApp
         public void JsonReadFrom(JSON.ANode node, string outerName = "")
         {
             Id = node[STR_Id].AsInt;
-            SizeX = node[STR_Size_x].AsInt;
-            SizeY = node[STR_Size_y].AsInt;
+            SizeX = node[STR_Size_x].AsFloat;
+            SizeY = node[STR_Size_y].AsFloat;
             JSON.TryReadString(node, ref Description, STR_Description);
             JSON.TryReadString(node, ref MainPictureStr, STR_Main_Name);
             JSON.TryReadString(node, ref PreviewPictureStr, STR_Preview_Name);
