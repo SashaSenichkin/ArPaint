@@ -9,12 +9,12 @@ namespace PaintApp
 {
     class UIDetail:MonoBehaviour
     {
-        public event Action OnDoubleClick;
+        //public event Action OnDoubleClick;
         public event Action OnSwipeLeft;
         public event Action OnSwipeRight;
-        private DateTime LastClick;
+        //private DateTime LastClick;
         private float? LastClickPointX = null;
-        private float DoubleClickMs = 500f;
+        //private float DoubleClickMs = 500f;
         [SerializeField]
         private Image DetailImage;
         [SerializeField]
@@ -43,22 +43,22 @@ namespace PaintApp
         }
         public void OnMouseDown()
         {
-            if (LastClick == null)
-            {
-                LastClick = DateTime.Now;
-            }
-            else if ((DateTime.Now - LastClick).TotalMilliseconds <= DoubleClickMs)
-            {
-                if (OnDoubleClick != null)
-                {
-                    OnDoubleClick();
-                }
-            }
-            else
-            {
+            //if (LastClick == null)
+            //{
+            //    LastClick = DateTime.Now;
+            //}
+            //else if ((DateTime.Now - LastClick).TotalMilliseconds <= DoubleClickMs)
+            //{
+            //    if (OnDoubleClick != null)
+            //    {
+            //        OnDoubleClick();
+            //    }
+            //}
+            //else
+            //{
                 LastClickPointX = Application.isEditor ? Input.mousePosition.x : Input.touches.First().position.x;
-            }
-            LastClick = DateTime.Now;
+            //}
+            //LastClick = DateTime.Now;
         }
         public void OnMouseUp()
         {

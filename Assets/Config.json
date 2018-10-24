@@ -8,120 +8,120 @@
 	"pictures": [{
 		"id": 1,
 		"resource_name": "11",
-		"preview_pic_name": "dali1_sm",
-		"model_size_x": 1,
-		"model_size_y": 1,
-		"description": "11 Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"preview_pic_name": "11_sm",
+		"model_size_x": 66,
+		"model_size_y": 38,
+		"description": "Воробьи в доме. Птичий пир. Художник Jan Weenink",
 		"user_params": {
-			"size": "2 m",
-			"material": "холст",
+			"size": "38х66 см",
+			"material": "холст натуральный",
 			"paint_type": "масло",
-			"price": "3000$"
+			"price": "10 000 руб."
 		},
 		"is_new": false
 	},
 	{
 		"id": 2,
-		"resource_name": "11",
-		"preview_pic_name": "dali2_sm",
-		"model_size_x": 0.01,
-		"model_size_y": 0.01,
-		"description": "22 Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"resource_name": "22",
+		"preview_pic_name": "22_sm",
+		"model_size_x": 79,
+		"model_size_y": 70,
+		"description": "Бабочки. Бабочки на ромашке. Художник Jan Weenink",
 		"user_params": {
-			"size": "2 m",
-			"material": "холст",
+			"size": "70х70 см",
+			"material": "холст синтетический",
 			"paint_type": "масло",
-			"price": "3000$"
+			"price": "7 000 руб."
 		},
 		"is_new": false
 	},
 	{
 		"id": 3,
-		"resource_name": "11",
-		"preview_pic_name": "dali3_sm",
-		"model_size_x": 0.1,
-		"model_size_y": 0.1,
-		"description": "33Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"resource_name": "33",
+		"preview_pic_name": "33_sm",
+		"model_size_x": 117,
+		"model_size_y": 78,
+		"description": "Площадь согласия. Виконт Лепик и его дочери переходят площадь Согласия. Эдгар Дега. 1875. Репродукция",
 		"user_params": {
-			"size": "2 m",
+			"size": "78,4 x 117,5 см.",
 			"material": "холст",
 			"paint_type": "масло",
-			"price": "3000$"
+			"price": "17 500 руб."
 		},
 		"is_new": false
 	},
 	{
 		"id": 4,
 		"resource_name": "44",
-		"preview_pic_name": "dali4_sm",
-		"model_size_x": 1,
-		"model_size_y": 1,
-		"description": "44 Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"preview_pic_name": "44_sm",
+		"model_size_x": 81,
+		"model_size_y": 58,
+		"description": "Гостинница Де-Рош-Нуар в Трувиле. 1870г. Клод Моне",
 		"user_params": {
-			"size": "2 m",
+			"size": "58 х 81 см",
 			"material": "холст",
 			"paint_type": "масло",
-			"price": "3000$"
+			"price": "13 600 руб."
 		},
 		"is_new": false
 	},
 	{
 		"id": 5,
 		"resource_name": "55",
-		"preview_pic_name": "dali1_sm",
-		"model_size_x": 1,
-		"model_size_y": 1,
-		"description": "55 Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"preview_pic_name": "55_sm",
+		"model_size_x": 103,
+		"model_size_y": 137,
+		"description": "Хвойный лес. Солнечный день 1895. Иван Иванович Шишкин",
 		"user_params": {
-			"size": "2 m",
+			"size": "137х103 см",
 			"material": "холст",
 			"paint_type": "масло",
-			"price": "3000$"
+			"price": "54 000 руб."
 		},
 		"is_new": false
 	},
 	{
 		"id": 6,
 		"resource_name": "66",
-		"preview_pic_name": "dali2_sm",
-		"model_size_x": 1,
-		"model_size_y": 1,
-		"description": "66 Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"preview_pic_name": "66_sm",
+		"model_size_x": 56,
+		"model_size_y": 80,
+		"description": "Джино Ковили (1918-2005)",
 		"user_params": {
-			"size": "2 m",
+			"size": "56,7 x 80 см",
 			"material": "холст",
 			"paint_type": "масло",
-			"price": "3000$"
+			"price": "4500 руб."
 		},
 		"is_new": false
 	},
 	{
 		"id": 7,
 		"resource_name": "77",
-		"preview_pic_name": "dali3_sm",
-		"model_size_x": 1,
-		"model_size_y": 1,
-		"description": "77 Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"preview_pic_name": "77_sm",
+		"model_size_x": 45,
+		"model_size_y": 61,
+		"description": "Питер Пауль Рубенс – Автопортрет. Ок. 1623. Рубенсхейс Антверпен",
 		"user_params": {
-			"size": "2 m",
+			"size": "61х45 см",
 			"material": "холст",
 			"paint_type": "масло",
-			"price": "3000$"
+			"price": "47 000 руб."
 		},
 		"is_new": false
 	},
 	{
-		"id": 9,
+		"id": 8,
 		"resource_name": "88",
-		"preview_pic_name": "dali4_sm",
-		"model_size_x": 1,
-		"model_size_y": 1,
-		"description": "88 Фигура и драппировка на фоне пейзажа 1935. Фонд Гала - Сальвадор Дали",
+		"preview_pic_name": "88_sm",
+		"model_size_x": 71,
+		"model_size_y": 100,
+		"description": "Петров-Водкин Кузьма Сергеевич – Яблоки. 1917",
 		"user_params": {
-			"size": "2 m",
+			"size": "100x71,2 см",
 			"material": "холст",
 			"paint_type": "масло",
-			"price": "3000$"
+			"price": "12 900 руб."
 		},
 		"is_new": false
 	}

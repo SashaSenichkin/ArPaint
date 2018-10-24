@@ -34,7 +34,7 @@ namespace PaintApp
         public UIBottom UIBot;
         public TextAsset ConfigJson;
         public SpriteRenderer PicModel;
-
+        public GameObject Particles;
         private List<ScreenType> History;
         Config mainConf;
         int curPic;
@@ -47,7 +47,7 @@ namespace PaintApp
             UIcontr.Initialize();
             UIcontr.MainSceneInvalidate();
             History.Add(ScreenType.main);
-            UIDetContr.OnDoubleClick += ()=> SwitchScreenWrap(ScreenType.ARScene);
+            //UIDetContr.OnDoubleClick += ()=> SwitchScreenWrap(ScreenType.ARScene);
             UIDetContr.OnSwipeLeft += () => SetNextPic(true);
             UIDetContr.OnSwipeRight += () => SetNextPic(false);
         }
@@ -97,11 +97,12 @@ namespace PaintApp
             if (PicModel != null)
             {
                 PicModel.sprite = picture.MainPicture;
-                Debug.Log("SetChoosedPic " + picture.SizeX+ " " + picture.SizeY);
-                PicModel.gameObject.transform.localScale = new Vector3(picture.SizeX, picture.SizeY,0);
+                float xScale = picture.SizeX * 1000 / picture.MainPicture.texture.width;
+                float yScale = picture.SizeY * 1000 / picture.MainPicture.texture.height;
+                PicModel.gameObject.transform.localScale = new Vector3(xScale, yScale,0);
             }       
         }
-
+        
         public void SwitchScreenWrap(ScreenType screen)
         {
             if (screen == History.Last())
@@ -134,6 +135,7 @@ namespace PaintApp
         }
         public void OpenAR()
         {
+            ArHelperDialogShow();
             SwitchScreenWrap(ScreenType.ARScene);
         }
         public void OpenMain()
@@ -146,10 +148,14 @@ namespace PaintApp
         }
         public void ArHelperDialogHide()
         {
+            PicModel.enabled = true;
+            Particles.SetActive(false);
             UIcontr.SetDialogTo(ScreenType.ARHelpDialog, false);
         }
         public void ArHelperDialogShow()
         {
+            PicModel.enabled = false;
+            Particles.SetActive(true);
             UIcontr.SetDialogTo(ScreenType.ARHelpDialog, true);
         }
         #endregion
@@ -162,10 +168,10 @@ namespace PaintApp
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.mail.ru", 2525);
 
-                mail.From = new MailAddress("shild_and_sword@mail.ru");
+                mail.From = new MailAddress("commerce@bigreal.ru");
                 //mail.To.Add("korusant.jedi@gmail.com");
-                mail.To.Add("shild_and_sword@mail.ru");
-                mail.Subject = "Dude! some man form " + email +" and phone " + phone + " want to buy " + mainConf.AllProducts[curPic].Description;
+                mail.To.Add("commerce@bigreal.ru");
+                mail.Subject = "Dude! some man form " + email +" with phone " + phone + " want to buy " + mainConf.AllProducts[curPic].Description;
                 mail.Body = "man "; 
                 SmtpServer.Credentials = (ICredentialsByHost)new NetworkCredential("shild_and_sword@mail.ru", "redgard1");
 
