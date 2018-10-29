@@ -569,6 +569,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ArHelperDialogShow
       objectReference: {fileID: 0}
+    - target: {fileID: 114400314453671640, guid: 57297471a4fe3224f933cf6cf640876b,
+        type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95294955312881828, guid: 57297471a4fe3224f933cf6cf640876b, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 57297471a4fe3224f933cf6cf640876b, type: 2}
@@ -631,13 +636,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 296042244}
-  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 0, w: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 10.9}
   m_Children: []
   m_Father: {fileID: 1286139108}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &296042246
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -695,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6941ec02ead994c9b848d640887441f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HitTransform: {fileID: 296042245}
+  m_HitTransform: {fileID: 1286139108}
   maxRayDistance: 30
   collisionLayer:
     serializedVersion: 2
@@ -951,6 +956,11 @@ Prefab:
       propertyPath: PicModel
       value: 
       objectReference: {fileID: 296042246}
+    - target: {fileID: 114653719087012962, guid: af4bf98f633eac54fa33147e79cb50d5,
+        type: 2}
+      propertyPath: Particles
+      value: 
+      objectReference: {fileID: 481742511}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4bf98f633eac54fa33147e79cb50d5, type: 2}
   m_IsPrefabAsset: 0

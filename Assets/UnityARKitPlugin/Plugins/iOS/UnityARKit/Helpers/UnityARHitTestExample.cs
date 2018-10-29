@@ -51,10 +51,8 @@ namespace UnityEngine.XR.iOS
 			if (Input.touchCount > 0 && m_HitTransform != null)
 			{
 				var touch = Input.GetTouch(0);
-	print("update touch.position.y < 0.1 " +touch.position.y + " " +0.1*Screen.height);
 				if (touch.position.y < 0.1*Screen.height)
 				{
-					print("touch.position.y < 0.1 " +touch.position.y + " " +0.1*Screen.height);
 					return;
 				}
 				if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
